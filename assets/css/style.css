@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(16, 170, 55, 0.788);
+}
+
+#form {
+    height: 33.55rem;
+}
+#form label {
+    font-size: 20px;
+}
+
+.buttons {
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+}
+
+.stepForm {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+}
+
+.stepForm.active {
+    visibility: visible;
+    position: relative;
+}
+
+button:disabled {
+    background-color: grey !important;
+    border: none;
+    cursor: not-allowed !important;
+}
+
+.error {
+    top: 2.2rem;
+    left: 12.5rem;
+}
+
+.right {
+    background-color: #198754 ;
+}
+
+.pswd, .confirmPswd {
+    cursor: pointer;
+}

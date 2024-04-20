@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="row shadow">
+            <form action="" id="form" class="container mx-auto col-6 text-light text-center position-relative shadow">
+                <section class="active row p-5 position-absolute stepForm bg-dark m-0" id="step1">
+                    <h2 class="mb-5 text-success">Personal Information</h2>
+    
+                    <div class="row mb-4 mt-4 position-relative">
+    
+                        <label for="firstName" class="col-5 ">First Name: </label>
+                        <input type="text" placeholder="First Name" id="firstName" name="First Name" class="form-control col"
+                           oninput="check()" onkeydown="validate(event,'firstName')" />
+                        <p class="text-danger col-6 text-start position-absolute error"></p>
+    
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+    
+                        <label for="lastName" class="col-5 ">Last Name: </label>
+                        <input type="text" placeholder="Last Name" id="lastName" name="lastName" class="form-control col"
+                            pattern="^[A-Za-z]+$" oninput="check()" onkeydown="validate(event,'lastName')" />
+                        <p class="text-danger col-6 text-start position-absolute error"></p>
+    
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+    
+                        <label for="age" class="col-5 ">Age: </label>
+                        <input type="text" placeholder="Age" id="age" name="age" class="form-control col"
+                            oninput="check()" onkeydown="validate(event,'age')" maxlength="2"/>
+                        <p class="text-danger col-6 text-start position-absolute error"></p>
+    
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+    
+                        <label class="col-5 ">Gender:</label>
+                        <div class="col p-0">
+                            <select name="Gender" id="gender" class="form-select" oninput="check()">
+                                <option value="">Select Your Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+    
+                            </select>
+                        </div>
+                        <p class="text-danger col-6 text-start position-absolute error"></p>
+                    </div>
+    
+                </section>
+    
+                <section id="step2" class="row p-5 position-absolute stepForm bg-dark m-0">
+                    <h2 class="mb-5">Contact Details</h2>
+    
+                    <div class="row mb-4 mt-4 position-relative">
+                        <label for="email" class="col-5">Email: </label>
+                        <input type="text" placeholder="Email" id="email" name="email" class="form-control col"
+                            oninput="check()" />
+                        <p class="text-danger col-6 text-start position-absolute error" id="invalidEmail"></p>
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+                        <label for="password" class="col-5">Password: </label>
+                        <div class="input-group col p-0">
+                                <input type="password" placeholder="Password" id="password" name="password" class="form-control col"
+                            oninput="check()"/>
+                            <span class="text-dark p-2 bg-white pswd" onclick="showPassword('password', 'pswd')"><i class="fa-regular fa-eye bg-light"></i></span>
+                            </div>
+                        <p class="text-danger col-6 text-start position-absolute error invalidPassword" id="invalidPassword"></p>
+                        
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+                        <label for="confirmPassword" class="col-5">Confirm Password: </label>
+                        <div class="input-group col p-0">
+                            <input type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" class="form-control col"
+                            oninput="check()"/>
+                            <span class="text-dark p-2 bg-white confirmPswd" onclick="showPassword('confirmPassword','confirmPswd')"><i class="fa-regular fa-eye bg-light"></i></span>
+                        </div>
+                        <p class="text-danger col-6 text-start position-absolute error invalidConfirmPassword" id="invalidConfirmPassword"></p>
+                        
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+                        <label for="phoneNumber" class="col-5">Phone Number: </label>
+                        <input type="text" placeholder="Phone Number" id="phoneNumber" name="phoneNumber"
+                            class="form-control col" oninput="check()" onkeydown="validate(event,'phoneNumber')" maxlength="10"/>
+                        <p class="text-danger col-6 text-start position-absolute error" id="invalidPhoneNumber"></p>
+                    </div>
+    
+                    
+    
+                </section>
+    
+                <section id="step3" class="row p-5 position-absolute stepForm bg-dark m-0">
+                    <h2 class="mb-5">Address Information</h2>
+    
+                    <div class="row mb-4 mt-4 position-relative">
+                        <label for="address" class="col-5">Address: </label>
+                        <input type="text" placeholder="Address" id="address" name="address" class="form-control col"
+                            oninput="check()" />
+                        <p class="text-danger col-6 text-start position-absolute error"></p>
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+                        <label for="city" class="col-5">City: </label>
+                    <input type="text" placeholder="City" id="city" name="city" class="form-control col"
+                        oninput="check()" onkeydown="validate(event,'city')"/>
+                        <p class="text-danger col-6 text-start position-absolute error" id="invalidPostalCode"></p>
+                    </div>
+                    
+    
+                    <div class="row mb-4 mt-2 position-relative">
+                        <label for="country" class="col-5">Country: </label>
+                        <input type="text" placeholder="Country" id="country" name="country" class="form-control col"
+                            oninput="check()" onkeydown="validate(event,'country')"/>
+                            <p class="text-danger col-6 text-start position-absolute error"></p>
+                    </div>
+    
+                    <div class="row mb-4 mt-2 position-relative">
+                        <label for="postalCode" class="col-5">Postal Code: </label>
+                    <input type="text" placeholder="Postal Code" id="postalCode" name="postalCode" class="form-control col"
+                        oninput="check()" maxlength="6"/>
+                        <p class="text-danger col-6 text-start position-absolute error" id="invalidPostalCode"></p>
+                    </div>
+    
+                </section>
+    
+                <section class="position-absolute buttons d-flex justify-content-evenly bg-dark m-0 py-4" >
+                    <button id="prevBtn" onclick="navigateBackward(event)" class="btn btn-success px-4 py-2"
+                        disabled>Back</button>
+                    <button onclick="navigateForward(event)" id="nextBtn" class="btn btn-success px-4 py-2" disabled>Save &
+                        Next</button>
+                </section>
+            </form>
+            <div class="col-6 right d-flex align-items-center">
+                <div class="mx-auto col-6">
+                    <img src="./assets/images/logo.png" alt="logo" width="100%"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./assets/javascript/script.js"></script>
+</body>
+
+</html>
