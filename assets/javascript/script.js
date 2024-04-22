@@ -4,8 +4,10 @@ let totalSteps = document.querySelectorAll(".stepForm").length;
 let nextBtn = document.getElementById("nextBtn");
 let prevBtn = document.getElementById("prevBtn");
 
+// Object For storing user data 
 let formData = {};
 
+// function for displaying and hiding the forms 
 function show(step) {
     document.querySelectorAll(".stepForm").forEach(function (element) {
         element.classList.remove("active");
@@ -13,7 +15,9 @@ function show(step) {
     document.getElementById("step" + step).classList.add("active");
 }
 
+// function to navigation forward
 function navigateForward(event) {
+
     event.preventDefault();
     nextBtn.disabled = true;
 
@@ -28,14 +32,18 @@ function navigateForward(event) {
         }
     });
 
+    // if all the input fields are valid data will be stored in the object
     if (isValid) {
         inputFields.forEach(input => {
             formData[input.placeholder] = input.value;
         });
 
+        // storing gender data 
         formData["Gender"] = gender;
 
+        // storing the data in the local storage
         localStorage.setItem("formData", JSON.stringify(formData));
+
 
         if (currentPage === totalSteps) {
 
@@ -68,6 +76,7 @@ function navigateForward(event) {
 
 }
 
+// function to navigate backward
 function navigateBackward(event) {
     event.preventDefault();
     nextBtn.disabled = false;
@@ -86,12 +95,15 @@ function navigateBackward(event) {
     }
 }
 
+
 function check() {
 
     let currentSection = document.getElementById("step" + currentPage);
     let inputFields = currentSection.querySelectorAll("input");
     let gender = document.getElementById("gender").value;
     let inputs = Array.from(inputFields);
+
+    // to check whether any of the field is empty
     let isEmpty = inputs.some(input => input.value.trim() === "");
 
     let validGender = gender === "male" || gender === "female" || gender === "other";
@@ -106,6 +118,7 @@ function check() {
 
 }
 
+// function to validate input entered by user
 function validate(event, fieldName) {
     let regexString = /^[A-Za-z ]+$/;
     let regexNum = /^\d/;
@@ -137,10 +150,10 @@ function validate(event, fieldName) {
         case 'postalCode':
             validateField(event, regexNum);
             break;
-
     }
 }
 
+// function to prevent invalid input on keydown 
 function validateField(event, regex) {
     let key = event.key;
 
@@ -151,10 +164,10 @@ function validateField(event, regex) {
         event.preventDefault();
         return true;
     }
-
     return false;
 }
 
+// function to check for the validity of input field and show error message
 function isValidInput(input) {
 
     let isValid = true;
@@ -191,7 +204,6 @@ function isValidInput(input) {
 
     }
 
-
     if ((input.name != 'confirmPassword') && (input.name != 'password')) {
         if(!isValid) {
             input.nextElementSibling.textContent = `Invalid ${input.placeholder}`;
@@ -215,8 +227,6 @@ function isValidInput(input) {
         } else {
             invalidPassword.innerText = "";
         }
-
-
     }
 
     input.addEventListener('input', function () {
@@ -231,10 +241,12 @@ function isValidInput(input) {
     return isValid;
 }
 
+// function to hide or show the password by clicking on eye toggle button
 function showPassword(input, iconId) {
+
     let inputField = document.getElementById(input);
     let icon = document.querySelector(`.${iconId} .fa-regular`);
-    console.log(icon);
+
     if (inputField.type === "password") {
         inputField.type = "text";
         icon.classList.remove("fa-eye");

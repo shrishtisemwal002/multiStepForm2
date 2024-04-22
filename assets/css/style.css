@@ -35,6 +35,9 @@ body {
 button:disabled {
     background-color: grey !important;
     border: none;
+}
+
+#nextBtn:disabled, #prevBtn:disabled {
     cursor: not-allowed !important;
 }
 
@@ -48,5 +51,9 @@ button:disabled {
 }
 
 .pswd, .confirmPswd {
+    cursor: pointer;
+}
+
+select, select > option {
     cursor: pointer;
 }
