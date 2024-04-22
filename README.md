@@ -10,7 +10,7 @@ Features
 
 To run this project locally, follow these steps:
 Clone this repository to your local machine using :
-git clone 
+git clone https://github.com/shrishtisemwal002/multiStepForm2.git
 
 
 Credits
