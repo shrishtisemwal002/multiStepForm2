@@ -32,8 +32,7 @@
 
                         <!-- First Name Input Field -->
                         <label for="firstName" class="col-5 ">First Name: </label>
-                        <input type="text" placeholder="First Name" id="firstName" name="First Name" class="form-control col"
-                           oninput="check()" onkeydown="validate(event,'firstName')" />
+                        <input type="text" placeholder="First Name" id="firstName" name="First Name" class="form-control col" oninput="check()" onkeydown="validate(event,'firstName')" />
                         <p class="text-danger col-6 text-start position-absolute error"></p>
     
                     </div>
@@ -81,7 +80,7 @@
                 <!-- Contact Details Form -->
                 <section id="step2" class="row p-5 position-absolute stepForm bg-dark m-0">
 
-                    <h2 class="mb-5">Contact Details</h2>
+                    <h2 class="mb-5 text-success">Contact Details</h2>
     
                     <div class="row mb-4 mt-4 position-relative">
 
@@ -103,7 +102,8 @@
                             <input type="password" placeholder="Password" id="password" name="password" class="form-control col" oninput="check()"/>
 
                             <span class="text-dark p-2 bg-white pswd" onclick="showPassword('password', 'pswd')"><i class="fa-regular fa-eye bg-light"></i></span>
-                            </div>
+
+                        </div>
 
                         <p class="text-danger col-6 text-start position-absolute error invalidPassword" id="invalidPassword"></p>
                         
@@ -140,7 +140,7 @@
                 <!-- Address Information Form -->
                 <section id="step3" class="row p-5 position-absolute stepForm bg-dark m-0">
 
-                    <h2 class="mb-5">Address Information</h2>
+                    <h2 class="mb-5 text-success">Address Information</h2>
     
                     <div class="row mb-4 mt-4 position-relative">
 
