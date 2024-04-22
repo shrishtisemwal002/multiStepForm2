@@ -8,11 +8,12 @@ Features
 3. Dynamic navigation between form steps
    
 
-To run this project locally, follow these steps:
+
 Clone this repository to your local machine using :
 git clone https://github.com/shrishtisemwal002/multiStepForm2.git
 
 
 Credits
-2. Bootstrap framework for styling
-3. Font Awesome for icons
+
+1. Bootstrap framework for styling
+2. Font Awesome for icons
